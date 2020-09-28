@@ -13,7 +13,7 @@ from tabulate import tabulate
 usuarios = [['Hugo', '123', 'Admin'], ['Paco', '456', 'No Admin'], ['Luis','789', 'Admin'], ['Cesar', '321', 'No Admin']]
 
 # opción default e inputs para login / iniciar sesión
-opcion = ''
+opcion = '8'
 usuario = input('Ingresa nombre de usuario: ')
 password = input('Ingresa contraseña de usuario: ')
 
@@ -31,15 +31,15 @@ if usuario in nombres_todos:
   if usuario in nombres_admins:
     usuario_encontrado = [usuario, password, 'Admin']
     if usuario_encontrado in usuarios:
+      opcion = ''
       print('Inicio de sesión exitoso, BIENVENIDO.')
       inicio_sesion = 'Si'
     else:
-      print('Contraseña incorrecta. Programa finalizado. Adiós.')
+      print('Contraseña incorrecta. Programa Finalizado. Adiós.')
   else:
     print('Usuario indentificado, pero no es Administrador. Programa Finalizado. Adiós.')
 else:
   print('No Existe Usuario. Programa Finalizado. Adiós.')
-  opcion = 0
 
 # Listado de Productos de más búsquedas, nos enfocamos en nombres de productos para hacer una lista y las búqeudas que hay, así como las categorías de los productos y por medio de un filtro para búsquedas únicas de los productos que fueron buscados de la misma manera el filtrado para las categorías de los productos que fueron buscados.
 busquedas_producto = list(map(itemgetter(1), searches))
@@ -238,7 +238,7 @@ for i in range(12):
 
 # Aquí tenemos el loop final con las opciones para imprimir todo lo desarrollado en el código, dividimos en 7 opciones y una extra para salir del programa y finalizarlo. Hacemos ciclos for para ir imprimiendo con un formato que señale el producto y la cantidad, o por categorías vaya haciendo las impresiones, o que enumere las listas de los 20 productos por ejemplo. Para la opción de las ventas e ingresos tanto mensuales como anual utilizamos una tabulación que le da mejor formato a la tabla y un formato de dinero para imprimir el valor de las ganancias totales anuales.
 
-while(opcion != 8):
+while(opcion != '8'):
 
   opcion = input('Ingrese lo que quiera analizar:\n1: Listado de Productos con mayores ventas\n2: Listado de productos con mayores búsquedas\n3: Listado de productos con menores ventas separados por categoría.\n4: Listado de productos con menores busquedas separados por categoría.\n5: Listado de 20 productos con peores calificaciones de reseñas - tomando en cuenta devoluciones\n6: Listado de 20 productos con mejores calificaciones de reseñas - tomando en cuenta devoluciones\n7: Total de ingresos, ventas promedio y ventas totales mensuales & ventas anuales\n8: Salir\nRespuesta: ')
   os.system('cls' if os.name == 'nt' else 'clear')
